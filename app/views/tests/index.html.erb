@@ -1,14 +1,31 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>Tests</h1>
 
-<div id="tests">
-  <% @tests.each do |test| %>
-    <%= render test %>
-    <p>
-      <%= link_to "Show this test", test %>
-    </p>
-  <% end %>
+<div id="tests" class="container">
+<h1>Tests</h1>
+  <%= link_to "New test", new_test_path, class: 'btn btn-success' %>
+  <br>
+  <br>
+  <table class="table table-dark table-striped">
+    <thead>
+      <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Description</th>
+        <th scope="col">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+    <% @tests.each do |test| %>
+      <tr>
+        <td><%= test.name %></td>
+        <td><%= test.description %></td>
+        <td>
+          <%= link_to "Edit", edit_test_path(test), class: 'btn btn-primary'%>
+          <%= link_to  "Delete", test, method: :delete, class:'btn btn-danger'%>
+        </td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
 </div>
 
-<%= link_to "New test", new_test_path %>
