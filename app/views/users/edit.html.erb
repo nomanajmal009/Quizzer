@@ -1,0 +1,10 @@
+
+<div class='container'>
+    <h1>Editing User</h1>
+    <%= link_to "Back to users", users_path, class: 'btn btn-primary' %>
+    <%= link_to "Show this user", @user, class: 'btn btn-primary' %> 
+    <br>
+    <br>
+    <%= render "editform", user: @user %>
+</div>
+<br>

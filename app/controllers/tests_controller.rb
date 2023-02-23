@@ -9,15 +9,18 @@ class TestsController < ApplicationController
 
   # GET /tests/1 or /tests/1.json
   def show
+    authorize User
   end
 
   # GET /tests/new
   def new
     @test = Test.new
+    authorize User
   end
 
   # GET /tests/1/edit
   def edit
+    authorize User
   end
 
   # POST /tests or /tests.json
@@ -50,6 +53,7 @@ class TestsController < ApplicationController
 
   # DELETE /tests/1 or /tests/1.json
   def destroy
+    authorize User
     @test.destroy
 
     respond_to do |format|
@@ -66,6 +70,6 @@ class TestsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def test_params
-      params.fetch(:test, {})
+      params.require(:test).permit(:name, :description)
     end
 end

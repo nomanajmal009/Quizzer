@@ -14,6 +14,8 @@ class TestsTest < ApplicationSystemTestCase
     visit tests_url
     click_on "New test"
 
+    fill_in "Description", with: @test.description
+    fill_in "Name", with: @test.name
     click_on "Create Test"
 
     assert_text "Test was successfully created"
@@ -24,6 +26,8 @@ class TestsTest < ApplicationSystemTestCase
     visit test_url(@test)
     click_on "Edit this test", match: :first
 
+    fill_in "Description", with: @test.description
+    fill_in "Name", with: @test.name
     click_on "Update Test"
 
     assert_text "Test was successfully updated"
