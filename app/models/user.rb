@@ -7,9 +7,9 @@ class User < ApplicationRecord
   validates :email, :presence => true
   validates :role, :presence => true
   validates :password, :confirmation =>true
-  # validates_confirmation_of :password
 
   enum role: [:teacher, :student]
+
 
   def user_name
       return self.email.split('@').first
