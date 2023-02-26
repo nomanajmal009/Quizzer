@@ -1,0 +1,14 @@
+<div class="form-group one_line nested-fields">
+    <%# <%= f.index + 1 %>
+    <div class="field">
+        <%= f.text_area :description, class: "form-control mx-3" %>
+    </div>
+
+    <div class="field">
+        <p> Corrct Answer </p>
+        <%= f.check_box :is_true, class:"my-1"%>
+        <i class="bi bi-trash mx-1"></i>
+    </div>
+    <%= link_to_remove_association "Remove Option", f%>
+    <br>
+</div>

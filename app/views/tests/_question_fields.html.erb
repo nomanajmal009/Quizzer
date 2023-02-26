@@ -1,0 +1,14 @@
+
+<div class="nested-fields">
+    <div class="one_line field">
+        <br>
+        <%= f.text_field :name, class: "form-control", placeholder: "Question Name" %>
+        <i class="bi bi-trash mx-2 field"></i>
+    </div>
+
+    <div class="field">
+        <%= f.text_area :description, class: "form-control", placeholder: "Question Description" %>
+    </div>
+    <%= link_to_remove_association "Remove Question", f%>
+    <br>
+</div>

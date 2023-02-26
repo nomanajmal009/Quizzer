@@ -1,7 +1,7 @@
 class Question < ApplicationRecord
   belongs_to :test
-  has_many :options
-  accepts_nested_attributes_for :options
+  has_many :options, dependent: :destroy, inverse_of: :question
+  accepts_nested_attributes_for :options, reject_if: :all_blank, allow_destroy: true
   attr_accessor :name,
                   :description,
                   :options_attributes

@@ -1,9 +1,9 @@
 class Test < ApplicationRecord
-    has_many :questions
-    has_many :options
+    has_many :questions, dependent: :destroy, inverse_of: :test
+    has_many :options, dependent: :destroy, inverse_of: :test
 
-    accepts_nested_attributes_for :questions
-    accepts_nested_attributes_for :options
+    accepts_nested_attributes_for :questions, reject_if: :all_blank, allow_destroy: true
+    accepts_nested_attributes_for :options, reject_if: :all_blank, allow_destroy: true
     attr_accessor :questions_attributes,
                     :options_attributes
 

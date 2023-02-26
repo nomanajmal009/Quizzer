@@ -18,6 +18,7 @@ class TestsController < ApplicationController
     @test = Test.new
     @questions = @test.questions.build
     @options = @questions.options.build
+    
   end
 
   # GET /tests/1/edit
@@ -27,6 +28,10 @@ class TestsController < ApplicationController
 
   # POST /tests or /tests.json
   def create
+    puts "========================="*5
+    puts test_params
+    puts "========================="*5
+    byebug
     @test = Test.new(test_params)
 
     respond_to do |format|
@@ -73,8 +78,8 @@ class TestsController < ApplicationController
     # Only allow a list of trusted parameters through.
     def test_params
       params.require(:test).permit(:name, :description,
-                                    :questions_attributes => [:name , :description,
-                                      :options_attributes => [:description, :is_true]
+                                    questions_attributes: [:name , :description,
+                                      options_attributes: [:description, :is_true]
                                       ])
     end
 
