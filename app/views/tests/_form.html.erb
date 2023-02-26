@@ -28,8 +28,8 @@
       <%= render 'question_fields', f: question%>
   <% end %>
 
-  <div class="links">
-    <%= link_to_add_association "Add Question", form, :questions %>
+  <div class="links my-3">
+    <%= link_to_add_association "Add Question", form, :questions, class: 'btn btn-success bi bi-plus' %>
   </div>
   
 
