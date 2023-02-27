@@ -14,8 +14,11 @@ class TestsController < ApplicationController
 
   # GET /tests/new
   def new
-    @test = Test.new
     authorize User
+    @test = Test.new
+    @questions = @test.questions.build
+    @options = @questions.options.build
+    
   end
 
   # GET /tests/1/edit
@@ -28,7 +31,7 @@ class TestsController < ApplicationController
     @test = Test.new(test_params)
 
     respond_to do |format|
-      if @test.save
+      if @test.save!
         format.html { redirect_to test_url(@test), notice: "Test was successfully created." }
         format.json { render :show, status: :created, location: @test }
       else
@@ -70,6 +73,9 @@ class TestsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def test_params
-      params.require(:test).permit(:name, :description)
+      params.require(:test).permit(:name, :description,
+                                    questions_attributes: [:id, :name , :description, :_destroy,
+                                      options_attributes: [:id, :description, :is_true, :_destroy]
+                                      ])
     end
 end
