@@ -19,7 +19,7 @@ class Api::V1::AuthenticationController < ApplicationController
       user.save
       render json: { logout: 'User Logged out' }.to_json and return
     else  
-      render json: { error: 'Sign in your user' }.to_json and return
+      render json: { error: 'User not authenticated' }.to_json and return
     end
   end
 
