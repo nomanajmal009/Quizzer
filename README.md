@@ -7,15 +7,15 @@ Things you may want to cover:
 
 * Ruby & Rails version
 
-    Ruby 3.2.0
+    Install Ruby 3.2.0
 
-    Rails 7.0.4.2
+    Insatll Rails 7.0.4.2
 
 * Node.js Version
 
-    v18.14.2
+    Install Node.js v18.14.2
 
-* System dependencies
+* Operating System
 
     Ubuntu/Linux
 
