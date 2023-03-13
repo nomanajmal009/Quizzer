@@ -12,3 +12,9 @@ User.first_or_create(
     password: '12345678',
     password: '12345678' ,
     role: User.role[:teacher]
+
+User.first_or_create(
+    email: 'student@example.com',
+    password: '12345678',
+    password: '12345678' ,
+    role: User.role[:student]

@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
   private
 
   def authenticate_user_with_request_headers
-    return unless request.path == '/login';
+    return unless request.path == '/api/v1/login';
     email = request.headers['email']
     password = request.headers['password']
     if email && password
