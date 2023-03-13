@@ -11,7 +11,7 @@ class Api::V1::TestsController < ApplicationController
   end
 
   def save_test
-    # Stub this one
+    render json: { success: 'Test save successfully' }.to_json and return
   end
 
   private
