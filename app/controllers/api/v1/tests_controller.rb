@@ -11,7 +11,7 @@ class Api::V1::TestsController < ApplicationController
   end
 
   def save_test
-    # Stub this one
+    render json: { success: 'Test save successfully' }.to_json and return
   end
 
   private
@@ -21,6 +21,6 @@ class Api::V1::TestsController < ApplicationController
       user = User.find_by_api_token(api_token)
       return if user
 
-      render json: { error: 'Sign in as a user' }.to_json and return
+      render json: { error: 'User not authenticated' }.to_json and return
     end
 end

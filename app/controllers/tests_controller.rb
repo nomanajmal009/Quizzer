@@ -31,7 +31,7 @@ class TestsController < ApplicationController
     @test = Test.new(test_params)
 
     respond_to do |format|
-      if @test.save!
+      if @test.save
         format.html { redirect_to test_url(@test), notice: "Test was successfully created." }
         format.json { render :show, status: :created, location: @test }
       else
