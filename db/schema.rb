@@ -15,7 +15,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_28_021703) do
   enable_extension "plpgsql"
 
   create_table "options", force: :cascade do |t|
-    t.text "description"
+    t.text "description", null: false
     t.boolean "is_true"
     t.bigint "question_id", null: false
     t.datetime "created_at", null: false
@@ -24,7 +24,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_28_021703) do
   end
 
   create_table "questions", force: :cascade do |t|
-    t.string "name"
+    t.string "name", null: false
     t.text "description"
     t.bigint "test_id", null: false
     t.datetime "created_at", null: false
@@ -33,10 +33,10 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_28_021703) do
   end
 
   create_table "tests", force: :cascade do |t|
+    t.string "name", null: false
+    t.text "description", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "name", default: "", null: false
-    t.string "description"
   end
 
   create_table "users", force: :cascade do |t|
@@ -45,6 +45,10 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_28_021703) do
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
+    t.string "confirmation_token"
+    t.datetime "confirmed_at"
+    t.datetime "confirmation_sent_at"
+    t.string "unconfirmed_email"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "role", default: 0

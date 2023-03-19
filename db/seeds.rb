@@ -7,14 +7,14 @@
 #   Character.create(name: "Luke", movie: movies.first)
 
 
-User.first_or_create(
+User.create([{
     email: 'teacher@example.com',
     password: '12345678',
-    password: '12345678' ,
-    role: User.role[:teacher]
-
-User.first_or_create(
+    role: User.roles[:teacher],
+},
+{
     email: 'student@example.com',
     password: '12345678',
-    password: '12345678' ,
-    role: User.role[:student]
+    role: User.roles[:student],
+}
+])
